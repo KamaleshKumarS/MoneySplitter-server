@@ -6,7 +6,13 @@ const nodemailer=require("nodemailer");
 const { resolve } = require('path');
 const app=express();
 app.use(express.json())
-app.use(cors());
+const corsOptions ={
+	origin:'*', 
+	credentials:true,            //access-control-allow-credentials:true
+	optionSuccessStatus:200,
+ }
+ 
+ app.use(cors(corsOptions))
 app.use(bodyParser.json({extended:true}));
 app.use(bodyParser.urlencoded({extended:true}));
 const config={
@@ -200,6 +206,8 @@ app.post('/viewData',async(req,res)=>{
 		toPay[2]=val.Sudhan;
 		toPay[3]=val.Nitish;
 	});
+	//await toPay;
+	// console.log(toPay);
 	res.json({toPay});
 })
 app.listen(4000);
