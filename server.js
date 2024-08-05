@@ -207,7 +207,7 @@ app.post('/viewData',async(req,res)=>{
 		toPay[3]=val.Nitish;
 	});
 	//await toPay;
-	// console.log(toPay);
+	 console.log(toPay);
 	res.json({toPay});
 })
 app.listen(4000);
