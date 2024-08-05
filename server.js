@@ -117,7 +117,7 @@ await User.find({}).then(async(val2)=>{
 		from:"yashpalsachs@gmail.com",
 		to:"kamaleshkumartech@gmail.com",
 		subject:"Latest Addtion",
-		text:"SPLIT MADE  \nFROM: "+user+"\nAmount: "+amt+"\nPersons: "+persons+"\nDate: "+curr.toLocaleString()+" \n"+"Description : "+desc+" \n"+"After updation Values are: "+val2+"\n",
+		text:"SPLIT MADE  \nFROM: "+user+"\nAmount: "+amt+"\nPersons: "+persons+"\nDate: "+curr.toLocaleString(undefined, {timeZone: 'Asia/Kolkata'})+" \n"+"Description : "+desc+" \n"+"After updation Values are: "+val2+"\n",
 	}
 	try{await send(data)}
 	catch(err){
@@ -175,12 +175,12 @@ app.post('/pay',async(req,res)=>{
 	})
 	//console.log(prev,next);
 	await User.find({}).then(async(val2)=>{
-		const curr=new Date()
+		const curr=new Date();
 		const data={
 			from:"yashpalsachs@gmail.com",
 			to:"kamaleshkumartech@gmail.com",
 			subject:"Latest Addtion",
-			text:"PAY MADE  \nFROM: "+user+"\nAmount: "+amount+"\nTO: "+name+"\nDate: "+curr.toLocaleString()+" \n"+"After updation Values are: "+val2+"\n",
+			text:"PAY MADE  \nFROM: "+user+"\nAmount: "+amount+"\nTO: "+name+"\nDate: "+curr.toLocaleString(undefined, {timeZone: 'Asia/Kolkata'})+" \n"+"After updation Values are: "+val2+"\n",
 		}
 		try{await send(data)}
 		catch(err){
